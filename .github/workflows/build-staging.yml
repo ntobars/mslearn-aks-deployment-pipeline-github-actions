@@ -1,0 +1,12 @@
+name: Build and push the latest build to staging  # Nombre del flujo de trabajo
+
+on:  # Definición de los eventos que desencadenarán el flujo de trabajo
+  push:  # El flujo de trabajo se ejecutará en eventos push
+    branches: [ main ]  # Solo se ejecutará cuando se haga push a la rama principal
+
+jobs:  # Definición de los trabajos que se ejecutarán en este flujo de trabajo
+  build_push_image:  # Nombre del trabajo
+    runs-on: ubuntu-20.04  # El trabajo se ejecutará en un runner de GitHub que usa Ubuntu 20.04
+
+    steps:  # Lista de pasos que se ejecutarán como parte del trabajo
+      - uses: actions/checkout@v2  # Este paso utiliza la acción de checkout para clonar el repositorio en el runner
